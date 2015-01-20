@@ -1,0 +1,155 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="ws.mahesh.cwc2015.PointsTableFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group A"
+        android:id="@+id/textView9"
+        android:layout_margin="10dp" />
+
+    <TableLayout
+        android:id="@+id/table1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+
+            <TextView
+                android:text="POS"
+                android:layout_weight="1"
+                android:id="@+id/textView"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/imageView" />
+
+            <TextView
+                android:text="TEAM"
+                android:layout_weight="4"
+                android:id="@+id/textView2"
+                android:gravity="center" />
+
+            <TextView
+                android:text="P"
+                android:layout_weight="1"
+                android:id="@+id/textView3"
+                android:gravity="center" />
+
+            <TextView
+                android:text="W"
+                android:layout_weight="1"
+                android:id="@+id/textView4"
+                android:gravity="center" />
+
+            <TextView
+                android:text="L"
+                android:layout_weight="1"
+                android:id="@+id/textView5"
+                android:gravity="center" />
+
+            <TextView
+                android:text="T"
+                android:layout_weight="1"
+                android:id="@+id/textView6"
+                android:gravity="center" />
+
+            <TextView
+                android:text="NNR"
+                android:layout_weight="2"
+                android:id="@+id/textView7"
+                android:gravity="center" />
+
+            <TextView
+                android:text="PTS"
+                android:layout_weight="2"
+                android:id="@+id/textView8"
+                android:gravity="center" />
+        </TableRow>
+    </TableLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group B"
+        android:id="@+id/textView91"
+        android:layout_margin="10dp" />
+
+    <TableLayout
+        android:id="@+id/table2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+
+            <TextView
+                android:text="POS"
+                android:layout_weight="1"
+                android:id="@+id/textView11"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/imageView11" />
+
+            <TextView
+                android:text="TEAM"
+                android:layout_weight="4"
+                android:id="@+id/textView21"
+                android:gravity="center" />
+
+            <TextView
+                android:text="P"
+                android:layout_weight="1"
+                android:id="@+id/textView31"
+                android:gravity="center" />
+
+            <TextView
+                android:text="W"
+                android:layout_weight="1"
+                android:id="@+id/textView41"
+                android:gravity="center" />
+
+            <TextView
+                android:text="L"
+                android:layout_weight="1"
+                android:id="@+id/textView51"
+                android:gravity="center" />
+
+            <TextView
+                android:text="T"
+                android:layout_weight="1"
+                android:id="@+id/textView61"
+                android:gravity="center" />
+
+            <TextView
+                android:text="NNR"
+                android:layout_weight="2"
+                android:id="@+id/textView71"
+                android:gravity="center" />
+
+            <TextView
+                android:text="PTS"
+                android:layout_weight="2"
+                android:id="@+id/textView81"
+                android:gravity="center" />
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>
+</FrameLayout>
