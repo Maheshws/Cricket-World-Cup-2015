@@ -8,6 +8,9 @@ import android.view.MenuItem;
 
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 import it.neokree.materialnavigationdrawer.elements.MaterialSection;
+import ws.mahesh.cwc2015.fragments.BlankFragment;
+import ws.mahesh.cwc2015.fragments.PointsTableFragment;
+import ws.mahesh.cwc2015.fragments.TeamsFragment;
 
 
 public class MainActivity extends MaterialNavigationDrawer implements BlankFragment.OnFragmentInteractionListener {
@@ -24,7 +27,7 @@ public class MainActivity extends MaterialNavigationDrawer implements BlankFragm
         section0 = this.newSection("Scores",this.getResources().getDrawable(R.drawable.ic_whatshot_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorRed));
 
         section1 = this.newSection("Countdown",this.getResources().getDrawable(R.drawable.ic_schedule_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorPrimary));
-        section2 = this.newSection("Teams",this.getResources().getDrawable(R.drawable.ic_group_black_24dp),new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorGreen));
+        section2 = this.newSection("Teams",this.getResources().getDrawable(R.drawable.ic_group_black_24dp),new TeamsFragment()).setSectionColor(getResources().getColor(R.color.colorGreen));
         section3 = this.newSection("Schedule",this.getResources().getDrawable(R.drawable.ic_event_black_24dp),new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorPink));
         section4 = this.newSection("Points Table",this.getResources().getDrawable(R.drawable.ic_poll_black_24dp),new PointsTableFragment()).setSectionColor(getResources().getColor(R.color.colorDeepOrange));
         section5 = this.newSection("Venues",this.getResources().getDrawable(R.drawable.ic_public_black_24dp),new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorDeepPurple));
@@ -53,7 +56,7 @@ public class MainActivity extends MaterialNavigationDrawer implements BlankFragm
 
         // add your sections to the drawer
         this.addSection(section1);
-        this.addSection(section0);
+        //this.addSection(section0);
         this.addSection(section2);
         this.addSection(section3);
         this.addSection(section4);

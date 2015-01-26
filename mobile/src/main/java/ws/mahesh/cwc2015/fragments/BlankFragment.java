@@ -1,4 +1,4 @@
-package ws.mahesh.cwc2015;
+package ws.mahesh.cwc2015.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import ws.mahesh.cwc2015.R;
 
 
 /**
