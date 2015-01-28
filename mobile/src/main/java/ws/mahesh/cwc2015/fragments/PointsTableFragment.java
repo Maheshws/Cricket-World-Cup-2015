@@ -73,7 +73,7 @@ public class PointsTableFragment extends Fragment {
                 i1v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
                 tbrow.addView(i1v);
                 TextView t2v = new TextView(getActivity());
-                t2v.setText(pts_cursor.getString(pts_cursor.getColumnIndex("team_name")));
+                t2v.setText(pts_cursor.getString(pts_cursor.getColumnIndex("team_name")).toUpperCase());
                 //t2v.setGravity(Gravity.CENTER);
                 t2v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 3f));
                 tbrow.addView(t2v);
@@ -107,6 +107,7 @@ public class PointsTableFragment extends Fragment {
                 t8v.setGravity(Gravity.CENTER);
                 t8v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 2f));
                 tbrow.addView(t8v);
+                tbrow.setPadding(4,4,4,4);
                 tl.addView(tbrow);
                 pts_cursor.moveToNext();
             }
@@ -121,7 +122,7 @@ public class PointsTableFragment extends Fragment {
                 i1v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
                 tbrow.addView(i1v);
                 TextView t2v = new TextView(getActivity());
-                t2v.setText(pts_cursor.getString(pts_cursor.getColumnIndex("team_name")));
+                t2v.setText(pts_cursor.getString(pts_cursor.getColumnIndex("team_name")).toUpperCase());
                 //t2v.setGravity(Gravity.CENTER);
                 t2v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 3f));
                 tbrow.addView(t2v);
@@ -155,6 +156,7 @@ public class PointsTableFragment extends Fragment {
                 t8v.setGravity(Gravity.CENTER);
                 t8v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 2f));
                 tbrow.addView(t8v);
+                tbrow.setPadding(4,4,4,4);
                 t2.addView(tbrow);
                 pts_cursor.moveToNext();
 
@@ -170,12 +172,13 @@ public class PointsTableFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
+        pts_cursor.close();
+        dbHelper.close();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        pts_cursor.close();
-        dbHelper.close();
+
     }
 }

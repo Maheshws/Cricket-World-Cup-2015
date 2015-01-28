@@ -9,11 +9,13 @@ import android.view.MenuItem;
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 import it.neokree.materialnavigationdrawer.elements.MaterialSection;
 import ws.mahesh.cwc2015.fragments.BlankFragment;
+import ws.mahesh.cwc2015.fragments.FixturesFragment;
 import ws.mahesh.cwc2015.fragments.PointsTableFragment;
 import ws.mahesh.cwc2015.fragments.TeamsFragment;
+import ws.mahesh.cwc2015.fragments.VenueFragment;
 
 
-public class MainActivity extends MaterialNavigationDrawer implements BlankFragment.OnFragmentInteractionListener {
+public class MainActivity extends MaterialNavigationDrawer {
 
     MaterialSection section0,section1, section2, section3, section4,section5, recorder, night, last, settingsSection;
 
@@ -28,9 +30,9 @@ public class MainActivity extends MaterialNavigationDrawer implements BlankFragm
 
         section1 = this.newSection("Countdown",this.getResources().getDrawable(R.drawable.ic_schedule_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorPrimary));
         section2 = this.newSection("Teams",this.getResources().getDrawable(R.drawable.ic_group_black_24dp),new TeamsFragment()).setSectionColor(getResources().getColor(R.color.colorGreen));
-        section3 = this.newSection("Schedule",this.getResources().getDrawable(R.drawable.ic_event_black_24dp),new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorPink));
+        section3 = this.newSection("Schedule",this.getResources().getDrawable(R.drawable.ic_event_black_24dp),new FixturesFragment()).setSectionColor(getResources().getColor(R.color.colorPink));
         section4 = this.newSection("Points Table",this.getResources().getDrawable(R.drawable.ic_poll_black_24dp),new PointsTableFragment()).setSectionColor(getResources().getColor(R.color.colorDeepOrange));
-        section5 = this.newSection("Venues",this.getResources().getDrawable(R.drawable.ic_public_black_24dp),new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorDeepPurple));
+        section5 = this.newSection("Venues",this.getResources().getDrawable(R.drawable.ic_public_black_24dp),new VenueFragment()).setSectionColor(getResources().getColor(R.color.colorDeepPurple));
         /* section2 = this.newSection("Section 2",new MaterialSectionListener() {
             @Override
             public void onClick(MaterialSection section) {
@@ -56,7 +58,7 @@ public class MainActivity extends MaterialNavigationDrawer implements BlankFragm
 
         // add your sections to the drawer
         this.addSection(section1);
-        //this.addSection(section0);
+        this.addSection(section0);
         this.addSection(section2);
         this.addSection(section3);
         this.addSection(section4);
@@ -73,10 +75,7 @@ public class MainActivity extends MaterialNavigationDrawer implements BlankFragm
     }
 
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

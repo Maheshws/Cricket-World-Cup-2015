@@ -49,4 +49,37 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         return c;
 
     }
+    public Cursor getVenues() {
+
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+
+        String [] sqlSelect = {"id", "venue_id", "stadium", "std_info"};
+        String sqlTables = "venue";
+        String orderBy =  "venue_id ASC";
+
+        qb.setTables(sqlTables);
+        Cursor c = qb.query(db, sqlSelect, null, null,
+                null, null, orderBy);
+
+        c.moveToFirst();
+        return c;
+
+    }
+
+    public Cursor getFixtures() {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+
+        String [] sqlSelect = {"id", "match_id", "matchtype", "team1", "team2"," team1_img", "team2_img", "date", "day","time", "group_id","stadium","city", "country","results","result_full"};
+        String sqlTables = "fixtures";
+        String orderBy =  "id ASC";
+
+        qb.setTables(sqlTables);
+        Cursor c = qb.query(db, sqlSelect, null, null,
+                null, null, orderBy);
+
+        c.moveToFirst();
+        return c;
+    }
 }
