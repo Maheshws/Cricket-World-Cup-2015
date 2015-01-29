@@ -19,7 +19,7 @@ import ws.mahesh.cwc2015.teams.TeamsObject;
 
 public class MainActivity extends MaterialNavigationDrawer {
 
-    MaterialSection scoresSection, countdownSection, teamsSection, fixtureSection, pointsSection, venueSection, recorder, night, last, settingsSection,teamsViewSection;
+    MaterialSection scoresSection, countdownSection, teamsSection, fixtureSection, pointsSection, venueSection, recorder, night, last, settingsSection;
 
     @Override
     public void init(Bundle savedInstanceState) {
@@ -73,15 +73,11 @@ public class MainActivity extends MaterialNavigationDrawer {
         */
         this.addBottomSection(settingsSection);
 
-        this.setBackPattern(MaterialNavigationDrawer.BACKPATTERN_CUSTOM);
+        this.setBackPattern(MaterialNavigationDrawer.BACKPATTERN_BACK_TO_FIRST);
     }
 
 
-    public void setTeamsViewFragment(TeamsObject teamsObject) {
 
-        teamsViewSection=this.newSection(teamsObject.getTeam(), TeamViewFragment.newInstance(teamsObject));
-        teamsViewSection.select();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,15 +105,4 @@ public class MainActivity extends MaterialNavigationDrawer {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected MaterialSection backToSection(MaterialSection currentSection) {
-        // example of use:
-        if(currentSection == teamsSection) {
-            return countdownSection;
-        }
-        if(currentSection==teamsViewSection)
-            return teamsSection;
-
-        return super.backToSection(currentSection);
-    }
 }

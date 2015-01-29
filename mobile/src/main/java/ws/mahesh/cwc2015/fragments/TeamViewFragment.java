@@ -60,7 +60,7 @@ public class TeamViewFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //((MaterialNavigationDrawer)this.getActivity()).getToolbar().setTitle(teamsObject.getTeam());
+        ((MaterialNavigationDrawer)this.getActivity()).addSubheader("Coach : "+teamsObject.getCoach());;
         TextView squad= (TextView) getActivity().findViewById(R.id.textViewSquad);
         squad.setText(teamsObject.getPlayers());
 

@@ -76,7 +76,7 @@ public class TeamsFragment extends Fragment {
 
                 TeamsObject temp = teamsObject.get(position);
 
-                ((MaterialNavigationDrawer)getActivity()).setFragment(TeamViewFragment.newInstance(temp),temp.getTeam(),new TeamsFragment());
+                ((MaterialNavigationDrawer)getActivity()).setFragmentChild(TeamViewFragment.newInstance(temp),temp.getTeam());
 
 
             }
