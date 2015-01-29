@@ -55,7 +55,7 @@ public class FixturesFragment extends Fragment {
         fix_cursor = dbHelper.getFixtures();
         fillData();
         recyclerView = (RecyclerView) getActivity().findViewById(R.id.fixs_recyclerview);
-        adapter = new FixturesAdapter(getActivity(), fixObject,getResources().getColor(R.color.colorFixtures));
+        adapter = new FixturesAdapter(getActivity(), fixObject, getResources().getColor(R.color.colorFixtures));
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
@@ -73,7 +73,7 @@ public class FixturesFragment extends Fragment {
         if (fix_cursor != null) {
             if (fix_cursor.moveToFirst()) {
                 do {
-                    FixtureObject temp = new FixtureObject(fix_cursor.getInt(0),fix_cursor.getInt(1),fix_cursor.getString(2) ,fix_cursor.getString(3),fix_cursor.getString(4),fix_cursor.getString(5),fix_cursor.getString(6),getIcon(fix_cursor.getString(5)),getIcon(fix_cursor.getString(6)),fix_cursor.getString(7),fix_cursor.getString(8),fix_cursor.getString(9),fix_cursor.getString(10),fix_cursor.getString(11),fix_cursor.getString(12),fix_cursor.getString(13),fix_cursor.getString(14),fix_cursor.getString(15));
+                    FixtureObject temp = new FixtureObject(fix_cursor.getInt(0), fix_cursor.getInt(1), fix_cursor.getString(2), fix_cursor.getString(3), fix_cursor.getString(4), fix_cursor.getString(5), fix_cursor.getString(6), getIcon(fix_cursor.getString(5)), getIcon(fix_cursor.getString(6)), fix_cursor.getString(7), fix_cursor.getString(8), fix_cursor.getString(9), fix_cursor.getString(10), fix_cursor.getString(11), fix_cursor.getString(12), fix_cursor.getString(13), fix_cursor.getString(14), fix_cursor.getString(15));
                     fixObject.add(temp);
                     i++;
                 } while (fix_cursor.moveToNext());

@@ -1,12 +1,11 @@
 package ws.mahesh.cwc2015.fragments;
 
 
+import android.app.Fragment;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +14,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
-import ws.mahesh.cwc2015.MainActivity;
 import ws.mahesh.cwc2015.R;
 import ws.mahesh.cwc2015.databasehelpers.DatabaseHelper;
 import ws.mahesh.cwc2015.fixtures.FixtureObject;
@@ -36,18 +33,17 @@ public class TeamViewFragment extends Fragment {
     private List<FixtureObject> fixObject = new ArrayList<>();
     private FixturesAdapter adapter;
 
-    public static TeamViewFragment newInstance(TeamsObject teamsObject1){
-        TeamViewFragment fragment=new TeamViewFragment();
-        Bundle args = new Bundle();
-        teamsObject=teamsObject1;
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     public TeamViewFragment() {
         // Required empty public constructor
     }
 
+    public static TeamViewFragment newInstance(TeamsObject teamsObject1) {
+        TeamViewFragment fragment = new TeamViewFragment();
+        Bundle args = new Bundle();
+        teamsObject = teamsObject1;
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,15 +56,14 @@ public class TeamViewFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ((MaterialNavigationDrawer)this.getActivity()).addSubheader("Coach : "+teamsObject.getCoach());;
-        TextView squad= (TextView) getActivity().findViewById(R.id.textViewSquad);
+        TextView squad = (TextView) getActivity().findViewById(R.id.textViewSquad);
         squad.setText(teamsObject.getPlayers());
 
         dbHelper = new DatabaseHelper(getActivity());
         fix_cursor = dbHelper.getTeamFixtures(teamsObject.getTeam());
         fillData();
         recyclerView = (RecyclerView) getActivity().findViewById(R.id.fixs_recyclerview);
-        adapter = new FixturesAdapter(getActivity(), fixObject,getResources().getColor(R.color.colorTeams));
+        adapter = new FixturesAdapter(getActivity(), fixObject, getResources().getColor(R.color.colorTeams));
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
@@ -86,7 +81,7 @@ public class TeamViewFragment extends Fragment {
         if (fix_cursor != null) {
             if (fix_cursor.moveToFirst()) {
                 do {
-                    FixtureObject temp = new FixtureObject(fix_cursor.getInt(0),fix_cursor.getInt(1),fix_cursor.getString(2) ,fix_cursor.getString(3),fix_cursor.getString(4),fix_cursor.getString(5),fix_cursor.getString(6),getIcon(fix_cursor.getString(5)),getIcon(fix_cursor.getString(6)),fix_cursor.getString(7),fix_cursor.getString(8),fix_cursor.getString(9),fix_cursor.getString(10),fix_cursor.getString(11),fix_cursor.getString(12),fix_cursor.getString(13),fix_cursor.getString(14),fix_cursor.getString(15));
+                    FixtureObject temp = new FixtureObject(fix_cursor.getInt(0), fix_cursor.getInt(1), fix_cursor.getString(2), fix_cursor.getString(3), fix_cursor.getString(4), fix_cursor.getString(5), fix_cursor.getString(6), getIcon(fix_cursor.getString(5)), getIcon(fix_cursor.getString(6)), fix_cursor.getString(7), fix_cursor.getString(8), fix_cursor.getString(9), fix_cursor.getString(10), fix_cursor.getString(11), fix_cursor.getString(12), fix_cursor.getString(13), fix_cursor.getString(14), fix_cursor.getString(15));
                     fixObject.add(temp);
                     i++;
                 } while (fix_cursor.moveToNext());

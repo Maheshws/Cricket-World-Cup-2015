@@ -70,13 +70,13 @@ public class TeamsFragment extends Fragment {
         adapter = new TeamsAdapter(getActivity(), teamsObject);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView,new ClickListener() {
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
 
                 TeamsObject temp = teamsObject.get(position);
 
-                ((MaterialNavigationDrawer)getActivity()).setFragmentChild(TeamViewFragment.newInstance(temp),temp.getTeam());
+                ((MaterialNavigationDrawer) getActivity()).setFragmentChild(TeamViewFragment.newInstance(temp), temp.getTeam());
 
 
             }
@@ -160,18 +160,20 @@ public class TeamsFragment extends Fragment {
         super.onStop();
     }
 
-    public static interface ClickListener{
+    public static interface ClickListener {
         public void onClick(View view, int position);
+
         public void onLongClick(View view, int position);
     }
 
-    static class RecyclerTouchListener implements  RecyclerView.OnItemTouchListener{
+    static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
         private GestureDetector gestureDetector;
         private ClickListener clickListener;
-        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClickListener clickListener){
-            this.clickListener=clickListener;
-            gestureDetector=new GestureDetector(context, new GestureDetector.SimpleOnGestureListener(){
+
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClickListener clickListener) {
+            this.clickListener = clickListener;
+            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
                 @Override
                 public boolean onSingleTapUp(MotionEvent e) {
                     return true;
@@ -179,20 +181,19 @@ public class TeamsFragment extends Fragment {
 
                 @Override
                 public void onLongPress(MotionEvent e) {
-                    View child=recyclerView.findChildViewUnder(e.getX(), e.getY());
-                    if(child!=null && clickListener!=null)
-                    {
+                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
+                    if (child != null && clickListener != null) {
                         clickListener.onLongClick(child, recyclerView.getChildPosition(child));
                     }
                 }
             });
         }
+
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
 
-            View child=rv.findChildViewUnder(e.getX(), e.getY());
-            if(child!=null && clickListener!=null && gestureDetector.onTouchEvent(e))
-            {
+            View child = rv.findChildViewUnder(e.getX(), e.getY());
+            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
                 clickListener.onClick(child, rv.getChildPosition(child));
             }
             return false;

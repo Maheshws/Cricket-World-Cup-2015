@@ -107,7 +107,7 @@ public class PointsTableFragment extends Fragment {
                 t8v.setGravity(Gravity.CENTER);
                 t8v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 2f));
                 tbrow.addView(t8v);
-                tbrow.setPadding(4,4,4,4);
+                tbrow.setPadding(4, 4, 4, 4);
                 tl.addView(tbrow);
                 pts_cursor.moveToNext();
             }
@@ -156,7 +156,7 @@ public class PointsTableFragment extends Fragment {
                 t8v.setGravity(Gravity.CENTER);
                 t8v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 2f));
                 tbrow.addView(t8v);
-                tbrow.setPadding(4,4,4,4);
+                tbrow.setPadding(4, 4, 4, 4);
                 t2.addView(tbrow);
                 pts_cursor.moveToNext();
 

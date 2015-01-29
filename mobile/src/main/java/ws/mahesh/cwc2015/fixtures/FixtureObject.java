@@ -23,7 +23,7 @@ public class FixtureObject {
     String result;
     String result_full;
 
-    public FixtureObject(int id, int match_id, String match_type, String team1, String team2,String team1_short, String team2_short, int team1_img, int team2_img, String date, String day, String time, String group, String stadium, String city, String country, String result, String result_full) {
+    public FixtureObject(int id, int match_id, String match_type, String team1, String team2, String team1_short, String team2_short, int team1_img, int team2_img, String date, String day, String time, String group, String stadium, String city, String country, String result, String result_full) {
         this.id = id;
         this.match_id = match_id;
         this.match_type = match_type;

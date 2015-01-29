@@ -32,18 +32,14 @@ class VersionComparator implements Comparator<String> {
      * database names used are the same, as this function only compares the
      * two version numbers.
      *
-     * @param file0
-     *            an upgrade script file name
-     * @param file1
-     *            a second upgrade script file name to compare with file0
+     * @param file0 an upgrade script file name
+     * @param file1 a second upgrade script file name to compare with file0
      * @return an integer < 0 if file0 should be applied before file1, 0 if
-     *         they are equal (though that shouldn't happen), and > 0 if
-     *         file0 should be applied after file1.
-     *
-     * @exception ws.mahesh.cwc2015.databasehelpers.SQLiteAssetHelper.SQLiteAssetException
-     *                thrown if the strings are not in the correct upgrade
-     *                script format of:
-     *                <code>databasename_fromVersionInteger_toVersionInteger</code>
+     * they are equal (though that shouldn't happen), and > 0 if
+     * file0 should be applied after file1.
+     * @throws ws.mahesh.cwc2015.databasehelpers.SQLiteAssetHelper.SQLiteAssetException thrown if the strings are not in the correct upgrade
+     *                                                                                  script format of:
+     *                                                                                  <code>databasename_fromVersionInteger_toVersionInteger</code>
      */
     @Override
     public int compare(String file0, String file1) {

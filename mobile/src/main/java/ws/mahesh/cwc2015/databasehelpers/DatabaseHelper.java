@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
-        String [] sqlSelect = {"id", "team_name", "group1", "MP","W","D","L","RR","PT"};
+        String[] sqlSelect = {"id", "team_name", "group1", "MP", "W", "D", "L", "RR", "PT"};
         String sqlTables = "points_table";
 
         qb.setTables(sqlTables);
@@ -32,14 +32,15 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         return c;
 
     }
+
     public Cursor getTeams() {
 
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
-        String [] sqlSelect = {"id", "team_id", "team", "captain","coach","players"};
+        String[] sqlSelect = {"id", "team_id", "team", "captain", "coach", "players"};
         String sqlTables = "teams";
-        String orderBy =  "team ASC";
+        String orderBy = "team ASC";
 
         qb.setTables(sqlTables);
         Cursor c = qb.query(db, sqlSelect, null, null,
@@ -49,14 +50,15 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         return c;
 
     }
+
     public Cursor getVenues() {
 
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
-        String [] sqlSelect = {"id", "venue_id", "stadium", "std_info"};
+        String[] sqlSelect = {"id", "venue_id", "stadium", "std_info"};
         String sqlTables = "venue";
-        String orderBy =  "venue_id ASC";
+        String orderBy = "venue_id ASC";
 
         qb.setTables(sqlTables);
         Cursor c = qb.query(db, sqlSelect, null, null,
@@ -71,9 +73,9 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
-        String [] sqlSelect = {"id", "match_id", "matchtype", "team1", "team2"," team1_img", "team2_img", "date", "day","time", "group_id","stadium","city", "country","results","result_full"};
+        String[] sqlSelect = {"id", "match_id", "matchtype", "team1", "team2", " team1_img", "team2_img", "date", "day", "time", "group_id", "stadium", "city", "country", "results", "result_full"};
         String sqlTables = "fixtures";
-        String orderBy =  "id ASC";
+        String orderBy = "id ASC";
 
         qb.setTables(sqlTables);
         Cursor c = qb.query(db, sqlSelect, null, null,
@@ -82,17 +84,18 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         c.moveToFirst();
         return c;
     }
+
     public Cursor getTeamFixtures(String team) {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
-        String [] sqlSelect = {"id", "match_id", "matchtype", "team1", "team2"," team1_img", "team2_img", "date", "day","time", "group_id","stadium","city", "country","results","result_full"};
+        String[] sqlSelect = {"id", "match_id", "matchtype", "team1", "team2", " team1_img", "team2_img", "date", "day", "time", "group_id", "stadium", "city", "country", "results", "result_full"};
         String sqlTables = "fixtures";
-        String orderBy =  "id ASC";
-        String where="team1=? OR team2=?";
+        String orderBy = "id ASC";
+        String where = "team1=? OR team2=?";
 
         qb.setTables(sqlTables);
-        Cursor c = qb.query(db, sqlSelect, where, new String[] { team, team },
+        Cursor c = qb.query(db, sqlSelect, where, new String[]{team, team},
                 null, null, orderBy);
 
         c.moveToFirst();

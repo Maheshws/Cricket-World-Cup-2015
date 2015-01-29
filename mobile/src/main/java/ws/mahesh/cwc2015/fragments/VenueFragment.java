@@ -1,9 +1,9 @@
 package ws.mahesh.cwc2015.fragments;
 
 
+import android.app.Fragment;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,7 +15,6 @@ import java.util.List;
 
 import ws.mahesh.cwc2015.R;
 import ws.mahesh.cwc2015.databasehelpers.DatabaseHelper;
-import ws.mahesh.cwc2015.utils.DividerItemDecoration;
 import ws.mahesh.cwc2015.venue.VenueAdapter;
 import ws.mahesh.cwc2015.venue.VenueObject;
 
@@ -30,6 +29,7 @@ public class VenueFragment extends Fragment {
     private Cursor venue_cursor;
     private List<VenueObject> venueObject = new ArrayList<>();
     private VenueAdapter adapter;
+
     public VenueFragment() {
         // Required empty public constructor
     }
@@ -41,6 +41,7 @@ public class VenueFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_venue, container, false);
     }
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

@@ -11,10 +11,8 @@ import it.neokree.materialnavigationdrawer.elements.MaterialSection;
 import ws.mahesh.cwc2015.fragments.BlankFragment;
 import ws.mahesh.cwc2015.fragments.FixturesFragment;
 import ws.mahesh.cwc2015.fragments.PointsTableFragment;
-import ws.mahesh.cwc2015.fragments.TeamViewFragment;
 import ws.mahesh.cwc2015.fragments.TeamsFragment;
 import ws.mahesh.cwc2015.fragments.VenueFragment;
-import ws.mahesh.cwc2015.teams.TeamsObject;
 
 
 public class MainActivity extends MaterialNavigationDrawer {
@@ -28,13 +26,13 @@ public class MainActivity extends MaterialNavigationDrawer {
 
 
         // create sections
-        scoresSection = this.newSection("Scores",this.getResources().getDrawable(R.drawable.ic_whatshot_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorScores));
+        scoresSection = this.newSection("Scores", this.getResources().getDrawable(R.drawable.ic_whatshot_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorScores));
 
-        countdownSection = this.newSection("Countdown",this.getResources().getDrawable(R.drawable.ic_schedule_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorCountDown));
-        teamsSection = this.newSection("Teams",this.getResources().getDrawable(R.drawable.ic_group_black_24dp),new TeamsFragment()).setSectionColor(getResources().getColor(R.color.colorTeams));
-        fixtureSection = this.newSection("Fixtures",this.getResources().getDrawable(R.drawable.ic_event_black_24dp),new FixturesFragment()).setSectionColor(getResources().getColor(R.color.colorFixtures));
-        pointsSection = this.newSection("Points Table",this.getResources().getDrawable(R.drawable.ic_poll_black_24dp),new PointsTableFragment()).setSectionColor(getResources().getColor(R.color.colorPoints));
-        venueSection = this.newSection("Venues",this.getResources().getDrawable(R.drawable.ic_public_black_24dp),new VenueFragment()).setSectionColor(getResources().getColor(R.color.colorVenue));
+        countdownSection = this.newSection("Countdown", this.getResources().getDrawable(R.drawable.ic_schedule_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorCountDown));
+        teamsSection = this.newSection("Teams", this.getResources().getDrawable(R.drawable.ic_group_black_24dp), new TeamsFragment()).setSectionColor(getResources().getColor(R.color.colorTeams));
+        fixtureSection = this.newSection("Fixtures", this.getResources().getDrawable(R.drawable.ic_event_black_24dp), new FixturesFragment()).setSectionColor(getResources().getColor(R.color.colorFixtures));
+        pointsSection = this.newSection("Points Table", this.getResources().getDrawable(R.drawable.ic_poll_black_24dp), new PointsTableFragment()).setSectionColor(getResources().getColor(R.color.colorPoints));
+        venueSection = this.newSection("Venues", this.getResources().getDrawable(R.drawable.ic_public_black_24dp), new VenueFragment()).setSectionColor(getResources().getColor(R.color.colorVenue));
         /* teamsSection = this.newSection("Section 2",new MaterialSectionListener() {
             @Override
             public void onClick(MaterialSection section) {
@@ -54,8 +52,7 @@ public class MainActivity extends MaterialNavigationDrawer {
 
         Intent i = new Intent(this,ContactsContract.Profile.class);
         */
-        settingsSection = this.newSection("Settings",this.getResources().getDrawable(R.drawable.ic_settings_black_24dp),new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorSettings));
-
+        settingsSection = this.newSection("Settings", this.getResources().getDrawable(R.drawable.ic_settings_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorSettings));
 
 
         // add your sections to the drawer
@@ -75,8 +72,6 @@ public class MainActivity extends MaterialNavigationDrawer {
 
         this.setBackPattern(MaterialNavigationDrawer.BACKPATTERN_BACK_TO_FIRST);
     }
-
-
 
 
     @Override

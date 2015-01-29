@@ -34,7 +34,7 @@ public class BlankFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        TextView tv1= (TextView) getActivity().findViewById(R.id.hello_world);
+        TextView tv1 = (TextView) getActivity().findViewById(R.id.hello_world);
         tv1.setText("TODO:\n0.App graphics(logo,etc.)\n1.Countdown(needs ideas)\n2.Backend for scores\n3.Link App with server\n4.Android Wear Scores(20% done)\n5.Activity Transitions with final layouts for teams, schedule.\n6.Settings\n7.(NC) Voting system");
     }
 

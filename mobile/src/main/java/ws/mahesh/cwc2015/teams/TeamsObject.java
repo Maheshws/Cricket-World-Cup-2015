@@ -11,9 +11,9 @@ public class TeamsObject {
     String coach;
     String players;
 
-    public TeamsObject(int id, int logoId,String team, String captain, String coach, String players) {
+    public TeamsObject(int id, int logoId, String team, String captain, String coach, String players) {
         this.id = id;
-        this.logoId=logoId;
+        this.logoId = logoId;
         this.team = team;
         this.captain = captain;
         this.coach = coach;
