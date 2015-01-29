@@ -68,6 +68,7 @@ public class FixturesFragment extends Fragment {
     }
 
     private void fillData() {
+        fixObject.clear();
         int i = 0;
         if (fix_cursor != null) {
             if (fix_cursor.moveToFirst()) {

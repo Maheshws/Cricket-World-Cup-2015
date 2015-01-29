@@ -22,7 +22,7 @@
             android:id="@+id/textViewMatchType"
             android:padding="12dp"
             android:textColor="#FFFFFF"
-            android:background="@color/colorPink"
+            android:background="@color/colorFixtures"
             android:gravity="center_vertical|center_horizontal" />
 
         <LinearLayout

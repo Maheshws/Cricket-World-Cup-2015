@@ -43,7 +43,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.Fixtur
             else
                 holder.matchInfo.setText(current.match_type+" "+current.match_id);
         else
-            holder.matchInfo.setText("Group "+current.group+", "+current.match_type+" "+current.match_id);
+            holder.matchInfo.setText(current.match_type+" "+current.match_id+", "+"Group "+current.group);
 
         if(current.result.equals("TBD"))
             holder.res.setVisibility(View.INVISIBLE);

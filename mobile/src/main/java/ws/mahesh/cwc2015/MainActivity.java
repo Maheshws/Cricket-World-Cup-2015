@@ -17,7 +17,7 @@ import ws.mahesh.cwc2015.fragments.VenueFragment;
 
 public class MainActivity extends MaterialNavigationDrawer {
 
-    MaterialSection section0,section1, section2, section3, section4,section5, recorder, night, last, settingsSection;
+    MaterialSection scoresSection, countdownSection, teamsSection, fixtureSection, pointsSection, venueSection, recorder, night, last, settingsSection;
 
     @Override
     public void init(Bundle savedInstanceState) {
@@ -26,14 +26,14 @@ public class MainActivity extends MaterialNavigationDrawer {
 
 
         // create sections
-        section0 = this.newSection("Scores",this.getResources().getDrawable(R.drawable.ic_whatshot_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorRed));
+        scoresSection = this.newSection("Scores",this.getResources().getDrawable(R.drawable.ic_whatshot_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorScores));
 
-        section1 = this.newSection("Countdown",this.getResources().getDrawable(R.drawable.ic_schedule_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorPrimary));
-        section2 = this.newSection("Teams",this.getResources().getDrawable(R.drawable.ic_group_black_24dp),new TeamsFragment()).setSectionColor(getResources().getColor(R.color.colorGreen));
-        section3 = this.newSection("Schedule",this.getResources().getDrawable(R.drawable.ic_event_black_24dp),new FixturesFragment()).setSectionColor(getResources().getColor(R.color.colorPink));
-        section4 = this.newSection("Points Table",this.getResources().getDrawable(R.drawable.ic_poll_black_24dp),new PointsTableFragment()).setSectionColor(getResources().getColor(R.color.colorDeepOrange));
-        section5 = this.newSection("Venues",this.getResources().getDrawable(R.drawable.ic_public_black_24dp),new VenueFragment()).setSectionColor(getResources().getColor(R.color.colorDeepPurple));
-        /* section2 = this.newSection("Section 2",new MaterialSectionListener() {
+        countdownSection = this.newSection("Countdown",this.getResources().getDrawable(R.drawable.ic_schedule_black_24dp), new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorCountDown));
+        teamsSection = this.newSection("Teams",this.getResources().getDrawable(R.drawable.ic_group_black_24dp),new TeamsFragment()).setSectionColor(getResources().getColor(R.color.colorTeams));
+        fixtureSection = this.newSection("Fixtures",this.getResources().getDrawable(R.drawable.ic_event_black_24dp),new FixturesFragment()).setSectionColor(getResources().getColor(R.color.colorFixtures));
+        pointsSection = this.newSection("Points Table",this.getResources().getDrawable(R.drawable.ic_poll_black_24dp),new PointsTableFragment()).setSectionColor(getResources().getColor(R.color.colorPoints));
+        venueSection = this.newSection("Venues",this.getResources().getDrawable(R.drawable.ic_public_black_24dp),new VenueFragment()).setSectionColor(getResources().getColor(R.color.colorVenue));
+        /* teamsSection = this.newSection("Section 2",new MaterialSectionListener() {
             @Override
             public void onClick(MaterialSection section) {
                 Toast.makeText(NavigationDrawerActivityRipple.this, "Section 2 Clicked", Toast.LENGTH_SHORT).show();
@@ -52,17 +52,17 @@ public class MainActivity extends MaterialNavigationDrawer {
 
         Intent i = new Intent(this,ContactsContract.Profile.class);
         */
-        settingsSection = this.newSection("Settings",this.getResources().getDrawable(R.drawable.ic_settings_black_24dp),new BlankFragment());
+        settingsSection = this.newSection("Settings",this.getResources().getDrawable(R.drawable.ic_settings_black_24dp),new BlankFragment()).setSectionColor(getResources().getColor(R.color.colorSettings));
 
 
 
         // add your sections to the drawer
-        this.addSection(section1);
-        this.addSection(section0);
-        this.addSection(section2);
-        this.addSection(section3);
-        this.addSection(section4);
-        this.addSection(section5);
+        this.addSection(countdownSection);
+        this.addSection(scoresSection);
+        this.addSection(fixtureSection);
+        this.addSection(teamsSection);
+        this.addSection(pointsSection);
+        this.addSection(venueSection);
         /*this.addSubheader("Subheader");
         this.addSection(recorder);
         this.addSection(night);

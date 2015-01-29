@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Team Name"
-            android:background="@color/colorGreen"
+            android:background="@color/colorTeams"
             android:textColor="#FFFFFF"
             android:padding="12dp"
             android:textAppearance="?android:attr/textAppearanceLarge"

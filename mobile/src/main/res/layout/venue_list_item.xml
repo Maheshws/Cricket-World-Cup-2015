@@ -20,7 +20,7 @@
             android:padding="12dp"
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:background="@color/colorDeepPurple"
+            android:background="@color/colorVenue"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
         <LinearLayout

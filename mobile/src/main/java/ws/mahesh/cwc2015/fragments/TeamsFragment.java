@@ -70,6 +70,7 @@ public class TeamsFragment extends Fragment {
     }
 
     private void fillData() {
+        teamsObject.clear();
         int i = 0;
         if (team_cursor != null) {
             if (team_cursor.moveToFirst()) {

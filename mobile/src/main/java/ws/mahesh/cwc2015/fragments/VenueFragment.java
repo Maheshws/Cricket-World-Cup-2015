@@ -61,6 +61,7 @@ public class VenueFragment extends Fragment {
     }
 
     private void fillData() {
+        venueObject.clear();
         int i = 0;
         if (venue_cursor != null) {
             if (venue_cursor.moveToFirst()) {

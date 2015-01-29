@@ -37,7 +37,7 @@
                         android:text="Group A"
                         android:padding="12dp"
                         android:textColor="#FFFFFF"
-                        android:background="@color/colorDeepOrange"
+                        android:background="@color/colorPoints"
                         android:textStyle="bold" />
 
                     <TableLayout
@@ -136,7 +136,7 @@
                         android:text="Group B"
                         android:padding="12dp"
                         android:textColor="#FFFFFF"
-                        android:background="@color/colorDeepOrange"
+                        android:background="@color/colorPoints"
                         android:textStyle="bold" />
 
                     <TableLayout
