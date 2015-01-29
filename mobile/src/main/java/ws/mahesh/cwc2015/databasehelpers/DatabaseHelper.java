@@ -82,4 +82,20 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         c.moveToFirst();
         return c;
     }
+    public Cursor getTeamFixtures(String team) {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+
+        String [] sqlSelect = {"id", "match_id", "matchtype", "team1", "team2"," team1_img", "team2_img", "date", "day","time", "group_id","stadium","city", "country","results","result_full"};
+        String sqlTables = "fixtures";
+        String orderBy =  "id ASC";
+        String where="team1=? OR team2=?";
+
+        qb.setTables(sqlTables);
+        Cursor c = qb.query(db, sqlSelect, where, new String[] { team, team },
+                null, null, orderBy);
+
+        c.moveToFirst();
+        return c;
+    }
 }

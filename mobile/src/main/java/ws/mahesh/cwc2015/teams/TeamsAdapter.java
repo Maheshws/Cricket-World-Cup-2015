@@ -47,7 +47,8 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.TeamsViewHol
         return data.size();
     }
 
-    class TeamsViewHolder extends RecyclerView.ViewHolder {
+
+    class TeamsViewHolder extends RecyclerView.ViewHolder  {
         TextView TName, TCaptain, TCoach;
         ImageView TLogo;
         public TeamsViewHolder(View itemView) {
@@ -57,5 +58,8 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.TeamsViewHol
             TName= (TextView) itemView.findViewById(R.id.textViewName);
             TLogo= (ImageView) itemView.findViewById(R.id.imageViewLogo);
         }
+
+
     }
+
 }

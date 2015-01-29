@@ -11,18 +11,20 @@ import it.neokree.materialnavigationdrawer.elements.MaterialSection;
 import ws.mahesh.cwc2015.fragments.BlankFragment;
 import ws.mahesh.cwc2015.fragments.FixturesFragment;
 import ws.mahesh.cwc2015.fragments.PointsTableFragment;
+import ws.mahesh.cwc2015.fragments.TeamViewFragment;
 import ws.mahesh.cwc2015.fragments.TeamsFragment;
 import ws.mahesh.cwc2015.fragments.VenueFragment;
+import ws.mahesh.cwc2015.teams.TeamsObject;
 
 
 public class MainActivity extends MaterialNavigationDrawer {
 
-    MaterialSection scoresSection, countdownSection, teamsSection, fixtureSection, pointsSection, venueSection, recorder, night, last, settingsSection;
+    MaterialSection scoresSection, countdownSection, teamsSection, fixtureSection, pointsSection, venueSection, recorder, night, last, settingsSection,teamsViewSection;
 
     @Override
     public void init(Bundle savedInstanceState) {
         allowArrowAnimation();
-        this.setDrawerHeaderImage(this.getResources().getDrawable(R.drawable.ic_banner_1));
+        this.setDrawerHeaderImage(this.getResources().getDrawable(R.drawable.banner_1));
 
 
         // create sections
@@ -71,11 +73,15 @@ public class MainActivity extends MaterialNavigationDrawer {
         */
         this.addBottomSection(settingsSection);
 
-        this.setBackPattern(MaterialNavigationDrawer.BACKPATTERN_BACK_TO_FIRST);
+        this.setBackPattern(MaterialNavigationDrawer.BACKPATTERN_CUSTOM);
     }
 
 
+    public void setTeamsViewFragment(TeamsObject teamsObject) {
 
+        teamsViewSection=this.newSection(teamsObject.getTeam(), TeamViewFragment.newInstance(teamsObject));
+        teamsViewSection.select();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -101,5 +107,17 @@ public class MainActivity extends MaterialNavigationDrawer {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected MaterialSection backToSection(MaterialSection currentSection) {
+        // example of use:
+        if(currentSection == teamsSection) {
+            return countdownSection;
+        }
+        if(currentSection==teamsViewSection)
+            return teamsSection;
+
+        return super.backToSection(currentSection);
     }
 }

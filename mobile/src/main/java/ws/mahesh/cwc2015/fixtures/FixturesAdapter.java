@@ -20,10 +20,12 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.Fixtur
     List<FixtureObject> data= Collections.emptyList();
     private LayoutInflater inflater;
     private Context context;
-    public FixturesAdapter(Context context, List<FixtureObject> data){
+    private int color;
+    public FixturesAdapter(Context context, List<FixtureObject> data, int color){
         this.context=context;
         inflater=LayoutInflater.from(context);
         this.data=data;
+        this.color=color;
     }
 
     @Override
@@ -37,6 +39,8 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.Fixtur
     public void onBindViewHolder(FixturesViewHolder holder, int position) {
         FixtureObject current=data.get(position);
         holder.res.setVisibility(View.VISIBLE);
+
+        holder.matchInfo.setBackgroundColor(color);
         if(current.group.equals("NA"))
             if(current.match_id==0)
                 holder.matchInfo.setText(current.match_type);

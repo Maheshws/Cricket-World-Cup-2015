@@ -1,28 +1,34 @@
 package ws.mahesh.cwc2015.fragments;
 
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
+import ws.mahesh.cwc2015.MainActivity;
 import ws.mahesh.cwc2015.R;
 import ws.mahesh.cwc2015.databasehelpers.DatabaseHelper;
 import ws.mahesh.cwc2015.fixtures.FixtureObject;
 import ws.mahesh.cwc2015.fixtures.FixturesAdapter;
+import ws.mahesh.cwc2015.teams.TeamsObject;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FixturesFragment extends Fragment {
+public class TeamViewFragment extends Fragment {
+
+    private static TeamsObject teamsObject;
 
     private RecyclerView recyclerView;
     private DatabaseHelper dbHelper;
@@ -30,13 +36,16 @@ public class FixturesFragment extends Fragment {
     private List<FixtureObject> fixObject = new ArrayList<>();
     private FixturesAdapter adapter;
 
-    public FixturesFragment() {
-        // Required empty public constructor
+    public static TeamViewFragment newInstance(TeamsObject teamsObject1){
+        TeamViewFragment fragment=new TeamViewFragment();
+        Bundle args = new Bundle();
+        teamsObject=teamsObject1;
+        fragment.setArguments(args);
+        return fragment;
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public TeamViewFragment() {
+        // Required empty public constructor
     }
 
 
@@ -44,18 +53,22 @@ public class FixturesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fixtures, container, false);
+        return inflater.inflate(R.layout.fragment_team_view, container, false);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        //((MaterialNavigationDrawer)this.getActivity()).getToolbar().setTitle(teamsObject.getTeam());
+        TextView squad= (TextView) getActivity().findViewById(R.id.textViewSquad);
+        squad.setText(teamsObject.getPlayers());
+
         dbHelper = new DatabaseHelper(getActivity());
-        fix_cursor = dbHelper.getFixtures();
+        fix_cursor = dbHelper.getTeamFixtures(teamsObject.getTeam());
         fillData();
         recyclerView = (RecyclerView) getActivity().findViewById(R.id.fixs_recyclerview);
-        adapter = new FixturesAdapter(getActivity(), fixObject,getResources().getColor(R.color.colorFixtures));
+        adapter = new FixturesAdapter(getActivity(), fixObject,getResources().getColor(R.color.colorTeams));
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
