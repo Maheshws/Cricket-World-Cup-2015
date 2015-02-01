@@ -18,15 +18,15 @@ public class TimeZoneHelper {
             Date parsed = sourceFormat.parse(time);
 
 
-            String tzone=TimeZone.getDefault().getID();
+            String tzone = TimeZone.getDefault().getID();
             TimeZone tz = TimeZone.getTimeZone(tzone);
             SimpleDateFormat destFormat;
-            SimpleDateFormat destFormatTemp=new SimpleDateFormat("z");
+            SimpleDateFormat destFormatTemp = new SimpleDateFormat("z");
             destFormatTemp.setTimeZone(tz);
-            if(destFormatTemp.format(parsed).length()>4)
-                 destFormat = new SimpleDateFormat("dd-MMM hh:mm aaa");
+            if (destFormatTemp.format(parsed).length() > 4)
+                destFormat = new SimpleDateFormat("dd-MMM hh:mm aaa");
             else
-                 destFormat = new SimpleDateFormat("dd-MMM hh:mm aaa, z");
+                destFormat = new SimpleDateFormat("dd-MMM hh:mm aaa, z");
             destFormat.setTimeZone(tz);
 
             return destFormat.format(parsed);
