@@ -15,7 +15,7 @@ import ws.mahesh.cwc2015lite.fragments.VenueFragment;
 
 public class MainActivity extends MaterialNavigationDrawer {
 
-    MaterialSection teamsSection, fixtureSection, venueSection, recorder, night, last;
+    MaterialSection teamsSection, fixtureSection, venueSection,contactSection, recorder, night, last;
 
     @Override
     public void init(Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class MainActivity extends MaterialNavigationDrawer {
 
         Intent i = new Intent(this,ContactsContract.Profile.class);
         */
+        contactSection = this.newSection("Email Us", this.getResources().getDrawable(R.drawable.ic_mail_black_24dp), new ContactFragment()).setSectionColor(getResources().getColor(R.color.colorTeams));
 
         // add your sections to the drawer
         this.addSection(fixtureSection);
@@ -58,6 +59,8 @@ public class MainActivity extends MaterialNavigationDrawer {
         this.addDivisor();
         this.addSection(last);
         */
+
+        this.addBottomSection(contactSection);
 
         this.setBackPattern(MaterialNavigationDrawer.BACKPATTERN_BACK_TO_FIRST);
     }
@@ -84,6 +87,18 @@ public class MainActivity extends MaterialNavigationDrawer {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/search?q=pub:" + "Maxx")));
             }
             return true;
+        }
+        if (id == R.id.action_share_link) {
+            try {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_SUBJECT, "Cricket World Cup 15");
+                String sAux = "\nAds free World Cup 2015 App, requires no permissions to install\n\n";
+                sAux = sAux + "https://play.google.com/store/apps/details?id=ws.mahesh.cwc2015lite \n\n";
+                i.putExtra(Intent.EXTRA_TEXT, sAux);
+                startActivity(Intent.createChooser(i, "Share using"));
+            } catch (Exception e) { //e.toString();
+            }
         }
 
         return super.onOptionsItemSelected(item);

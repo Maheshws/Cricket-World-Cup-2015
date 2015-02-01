@@ -3,5 +3,6 @@
 
     <string name="app_name">World Cup 2015</string>
     <string name="action_play_store">Open PlayStore</string>
+    <string name="share_with">Share with</string>
 
 </resources>
