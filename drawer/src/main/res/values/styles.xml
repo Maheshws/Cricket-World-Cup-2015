@@ -19,10 +19,16 @@
         <attr name="drawerColor" format="color" /><!-- Colore del drawer -->
         <attr name="sectionStyle" format="reference" />
         <attr name="subheaderStyle" format="reference"/>
+        <attr name="accountStyle" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="MaterialSubheader">
         <attr name="subheaderTitleColor" format="color"/>
+    </declare-styleable>
+    
+    <declare-styleable name="MaterialAccount">
+        <attr name="titleColor" format="color" />
+        <attr name="subtitleColor" format="color" />
     </declare-styleable>
 
 </resources>

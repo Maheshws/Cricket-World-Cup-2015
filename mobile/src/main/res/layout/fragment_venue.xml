@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ws.mahesh.cwc2015.fragments.VenueFragment">
+    tools:context="ws.mahesh.cwc2015lite.fragments.VenueFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/venues_recyclerview"

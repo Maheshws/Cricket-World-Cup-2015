@@ -1,6 +1,8 @@
 package it.neokree.materialnavigationdrawer.util;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -16,6 +18,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
@@ -31,18 +35,44 @@ public class Utils {
     private Utils() {}
 
     public static int getDrawerWidth(Resources res) {
-        if(res.getConfiguration().smallestScreenWidthDp >= 600 || res.getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            // device is a tablet
-            return (int) (320 * res.getDisplayMetrics().density);
-        }
-        else {
-            return (int) (res.getDisplayMetrics().widthPixels - (56 * res.getDisplayMetrics().density));
-        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
 
+            if (res.getConfiguration().smallestScreenWidthDp >= 600 || res.getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                // device is a tablet
+                return (int) (320 * res.getDisplayMetrics().density);
+            } else {
+                return (int) (res.getDisplayMetrics().widthPixels - (56 * res.getDisplayMetrics().density));
+            }
+        }
+        else { // for devices without smallestScreenWidthDp reference calculate if device screen is over 600 dp
+            if((res.getDisplayMetrics().widthPixels/res.getDisplayMetrics().density) >= 600 || res.getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+                return (int) (320 * res.getDisplayMetrics().density);
+            else
+                return (int) (res.getDisplayMetrics().widthPixels - (56 * res.getDisplayMetrics().density));
+        }
     }
 
     public static boolean isTablet(Resources res) {
-        return res.getConfiguration().smallestScreenWidthDp >= 600;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            return res.getConfiguration().smallestScreenWidthDp >= 600;
+        }
+        else { // for devices without smallestScreenWidthDp reference calculate if device screen is over 600
+            return (res.getDisplayMetrics().widthPixels/res.getDisplayMetrics().density) >= 600;
+
+        }
+    }
+
+    public static int getScreenHeight(Activity act) {
+        int height = 0;
+        Display display = act.getWindowManager().getDefaultDisplay();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            Point size = new Point();
+            display.getSize(size);
+            height = size.y;
+        } else {
+            height = display.getHeight();  // deprecated
+        }
+        return height;
     }
 
     public static Point getUserPhotoSize(Resources res) {

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="ws.mahesh.cwc2015.fragments.TeamViewFragment">
+    tools:context="ws.mahesh.cwc2015lite.fragments.TeamViewFragment">
 
     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"

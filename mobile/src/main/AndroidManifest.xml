@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ws.mahesh.cwc2015" >
+    package="ws.mahesh.cwc2015lite" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/NavigationDrawer" >
         <activity
-            android:name=".MainActivity"
+            android:name="ws.mahesh.cwc2015lite.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
