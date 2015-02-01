@@ -64,7 +64,7 @@ public class MainActivity extends MaterialNavigationDrawer {
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("text/plain");
                 i.putExtra(Intent.EXTRA_SUBJECT, "Cricket World Cup 15");
-                String sAux = "\nAds free World Cup 2015 App, requires no permissions to install\n\n";
+                String sAux = "\nStay up to date on Cricket World Cup 2015!\n\n Note: No ads and no permissions required to install, we promote privacy\n\n";
                 sAux = sAux + "https://play.google.com/store/apps/details?id=ws.mahesh.cwc2015lite \n\n";
                 i.putExtra(Intent.EXTRA_TEXT, sAux);
                 startActivity(Intent.createChooser(i, "Share using"));

@@ -41,6 +41,8 @@
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
                 android:id="@+id/imageViewTeam1Img" />
 
             <TextView
@@ -90,6 +92,8 @@
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
                     android:id="@+id/imageViewTeam2Img" />
 
                 <TextView

@@ -35,6 +35,8 @@
             android:id="@+id/imageViewLogo"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
             android:layout_marginLeft="8dp" />
 
         <LinearLayout
